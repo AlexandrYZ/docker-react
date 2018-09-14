@@ -10,8 +10,11 @@ script:
 
 deploy:
   provider: azure_web_apps
+  username: $AZURE_WA_USERNAME
+  password:
+    secret: "$AZURE_WA_PASSWORD"
   verbose: true
-  site: "docker-react.azurewebsites.net"
+  site: "docker-react"
   app: "docker-react"
   # region:
   # app: "docker"
@@ -20,6 +23,3 @@ deploy:
   # bucket_path: "docker"
   on:
     branch: master
-    username: $AZURE_WA_USERNAME
-    password:
-      secret: "$AZURE_WA_PASSWORD"
